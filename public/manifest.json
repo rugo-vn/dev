@@ -1,0 +1,30 @@
+{
+  "name": "Rugo Developer",
+  "version": "1.0.0",
+  "description": "",
+  "manifest_version": 3,
+  "author": "",
+  "action":{
+    "default_popup": "index.html",
+    "default_title": "Rugo Developer"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["extension/inject.js"]
+    }
+  ],
+  "background": {
+    "service_worker": "extension/background.js",
+    "type": "module"
+  },
+  "host_permissions": ["<all_urls>"],
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "storage",
+    "declarativeNetRequest",
+    "declarativeNetRequestWithHostAccess",
+    "declarativeNetRequestFeedback"
+  ]
+}
